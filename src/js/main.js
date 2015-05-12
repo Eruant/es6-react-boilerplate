@@ -1,4 +1,5 @@
 import React from 'react';
+import domready from 'domready';
 import App from './components/app';
 
-window.onload = () => React.render(<App />, document.querySelector('body'));
+domready(() => React.render(<App />, document.querySelector('body')));
