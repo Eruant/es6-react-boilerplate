@@ -10,4 +10,6 @@ var _componentsApp = require('./components/app');
 
 var _componentsApp2 = _interopRequireDefault(_componentsApp);
 
-_react2['default'].render(_react2['default'].createElement(_componentsApp2['default'], null), document.getElementById('main'));
+window.onload = function () {
+  return _react2['default'].render(_react2['default'].createElement(_componentsApp2['default'], null), document.querySelector('body'));
+};
