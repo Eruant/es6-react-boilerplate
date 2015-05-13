@@ -26,7 +26,6 @@ var AppActions = (function () {
   _createClass(AppActions, [{
     key: 'addItem',
     value: function addItem(item) {
-
       _dispatchersAppDispatcher2['default'].handleViewAction({
         actionType: _constantsAppConstants2['default'].ADD_ITEM,
         item: item
@@ -37,7 +36,7 @@ var AppActions = (function () {
     value: function removeItem(index) {
       _dispatchersAppDispatcher2['default'].handleViewAction({
         actionType: _constantsAppConstants2['default'].REMOVE_ITEM,
-        item: item
+        index: index
       });
     }
   }, {
@@ -45,7 +44,7 @@ var AppActions = (function () {
     value: function decreaseItem(index) {
       _dispatchersAppDispatcher2['default'].handleViewAction({
         actionType: _constantsAppConstants2['default'].DECREASE_ITEM,
-        item: item
+        index: index
       });
     }
   }, {
@@ -53,7 +52,7 @@ var AppActions = (function () {
     value: function increaseItem(index) {
       _dispatchersAppDispatcher2['default'].handleViewAction({
         actionType: _constantsAppConstants2['default'].INCREASE_ITEM,
-        item: item
+        index: index
       });
     }
   }]);

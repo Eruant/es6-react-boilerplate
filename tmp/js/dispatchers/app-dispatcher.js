@@ -33,6 +33,7 @@ var AppDispatcher = (function (_Dispatcher) {
   _createClass(AppDispatcher, [{
     key: 'handleViewAction',
     value: function handleViewAction(action) {
+
       this.dispatch({
         source: 'VIEW_ACTION',
         action: action

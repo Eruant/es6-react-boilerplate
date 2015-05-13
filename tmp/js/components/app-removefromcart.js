@@ -29,6 +29,7 @@ var RemoveFromCart = (function (_React$Component) {
     _classCallCheck(this, RemoveFromCart);
 
     _get(Object.getPrototypeOf(RemoveFromCart.prototype), 'constructor', this).call(this, props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   _inherits(RemoveFromCart, _React$Component);

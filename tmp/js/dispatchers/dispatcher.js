@@ -34,6 +34,7 @@ var Dispatcher = (function () {
   _createClass(Dispatcher, [{
     key: 'register',
     value: function register(callback) {
+
       _callbacks.push(callback);
 
       return _callbacks.length - 1;
@@ -41,6 +42,7 @@ var Dispatcher = (function () {
   }, {
     key: 'dispatch',
     value: function dispatch(payload) {
+
       _callbacks.forEach(function (callback) {
         _addPromise(callback, payload);
       });

@@ -24,6 +24,10 @@ var _componentsAppCatalog = require('../components/app-catalog');
 
 var _componentsAppCatalog2 = _interopRequireDefault(_componentsAppCatalog);
 
+var _componentsAppCart = require('../components/app-cart');
+
+var _componentsAppCart2 = _interopRequireDefault(_componentsAppCart);
+
 var App = (function (_React$Component) {
   function App(props) {
     _classCallCheck(this, App);
@@ -44,7 +48,13 @@ var App = (function (_React$Component) {
           null,
           'Lets shop'
         ),
-        _react2['default'].createElement(_componentsAppCatalog2['default'], null)
+        _react2['default'].createElement(_componentsAppCatalog2['default'], null),
+        _react2['default'].createElement(
+          'h1',
+          null,
+          'Cart'
+        ),
+        _react2['default'].createElement(_componentsAppCart2['default'], null)
       );
     }
   }]);

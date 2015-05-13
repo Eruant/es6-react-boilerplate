@@ -20,12 +20,14 @@ var _clearPromises = () => {
 class Dispatcher {
 
   register(callback) {
+
     _callbacks.push(callback);
 
     return _callbacks.length - 1;
   }
 
   dispatch(payload) {
+
     _callbacks.forEach((callback) => {
       _addPromise(callback, payload);
     });

@@ -4,7 +4,6 @@ import AppDispatcher from '../dispatchers/app-dispatcher';
 class AppActions {
 
   addItem(item) {
-
     AppDispatcher.handleViewAction({
       actionType: AppConstants.ADD_ITEM,
       item: item
@@ -14,21 +13,21 @@ class AppActions {
   removeItem(index) {
     AppDispatcher.handleViewAction({
       actionType: AppConstants.REMOVE_ITEM,
-      item: item
+      index: index
     });
   }
 
   decreaseItem(index) {
     AppDispatcher.handleViewAction({
       actionType: AppConstants.DECREASE_ITEM,
-      item: item
+      index: index
     });
   }
 
   increaseItem(index) {
     AppDispatcher.handleViewAction({
       actionType: AppConstants.INCREASE_ITEM,
-      item: item
+      index: index
     });
   }
 

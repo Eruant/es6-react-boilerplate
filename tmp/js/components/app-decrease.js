@@ -29,6 +29,7 @@ var Decrease = (function (_React$Component) {
     _classCallCheck(this, Decrease);
 
     _get(Object.getPrototypeOf(Decrease.prototype), 'constructor', this).call(this, props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   _inherits(Decrease, _React$Component);
