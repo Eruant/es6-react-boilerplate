@@ -20,6 +20,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _headerAppHeader = require('./header/app-header');
+
+var _headerAppHeader2 = _interopRequireDefault(_headerAppHeader);
+
 var Template = (function (_React$Component) {
   function Template(props) {
     _classCallCheck(this, Template);
@@ -33,9 +37,10 @@ var Template = (function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'h1',
+        'section',
         null,
-        'Template'
+        _react2['default'].createElement(_headerAppHeader2['default'], null),
+        this.props.children
       );
     }
   }]);

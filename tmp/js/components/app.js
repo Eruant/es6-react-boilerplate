@@ -20,6 +20,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterComponent = require('react-router-component');
+
+var _reactRouterComponent2 = _interopRequireDefault(_reactRouterComponent);
+
 var _catalogAppCatalog = require('./catalog/app-catalog');
 
 var _catalogAppCatalog2 = _interopRequireDefault(_catalogAppCatalog);
@@ -27,6 +31,17 @@ var _catalogAppCatalog2 = _interopRequireDefault(_catalogAppCatalog);
 var _cartAppCart = require('./cart/app-cart');
 
 var _cartAppCart2 = _interopRequireDefault(_cartAppCart);
+
+var _productAppCatalogdetail = require('./product/app-catalogdetail');
+
+var _productAppCatalogdetail2 = _interopRequireDefault(_productAppCatalogdetail);
+
+var _appTemplate = require('./app-template');
+
+var _appTemplate2 = _interopRequireDefault(_appTemplate);
+
+var Locations = _reactRouterComponent2['default'].Locations;
+var Location = _reactRouterComponent2['default'].Location;
 
 var App = (function (_React$Component) {
   function App(props) {
@@ -41,20 +56,15 @@ var App = (function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'section',
+        _appTemplate2['default'],
         null,
         _react2['default'].createElement(
-          'h1',
+          Locations,
           null,
-          'Lets shop'
-        ),
-        _react2['default'].createElement(_catalogAppCatalog2['default'], null),
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Cart'
-        ),
-        _react2['default'].createElement(_cartAppCart2['default'], null)
+          _react2['default'].createElement(Location, { path: '/', handler: _catalogAppCatalog2['default'] }),
+          _react2['default'].createElement(Location, { path: '/cart', handler: _cartAppCart2['default'] }),
+          _react2['default'].createElement(Location, { path: '/item/:item', handler: _productAppCatalogdetail2['default'] })
+        )
       );
     }
   }]);

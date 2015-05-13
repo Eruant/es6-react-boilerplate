@@ -1,4 +1,7 @@
 import React from 'react';
+import Router from 'react-router-component';
+
+var Link = Router.Link;
 
 class CartSummary extends React.Component {
 
@@ -8,7 +11,11 @@ class CartSummary extends React.Component {
 
     render() {
         return (
-          <h1>Cart Summary</h1>
+          <section>
+            <Link href="/cart">
+              Cart Items: QTY / &pound;COST
+            </Link>
+          </section>
         )
     }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import CartSummary from './app-cartsummary';
 
 class Header extends React.Component {
 
@@ -8,7 +9,14 @@ class Header extends React.Component {
 
     render() {
         return (
-          <h1>Header</h1>
+          <section>
+            <div>
+              <h1>Lets Shop</h1>
+            </div>
+            <div>
+              <CartSummary />
+            </div>
+          </section>
         )
     }
 

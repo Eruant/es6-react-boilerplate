@@ -1,6 +1,12 @@
 import React from 'react';
+import Router from 'react-router-component';
 import Catalog from './catalog/app-catalog';
 import Cart from './cart/app-cart';
+import CatalogDetail from './product/app-catalogdetail';
+import Template from './app-template';
+
+var Locations = Router.Locations;
+var Location = Router.Location;
 
 class App extends React.Component {
 
@@ -8,16 +14,17 @@ class App extends React.Component {
     super(props);
   }
 
-    render() {
-        return (
-          <section>
-            <h1>Lets shop</h1>
-            <Catalog />
-            <h1>Cart</h1>
-            <Cart />
-          </section>
-        )
-    }
+  render() {
+    return (
+      <Template>
+        <Locations>
+          <Location path="/" handler={Catalog} />
+          <Location path="/cart" handler={Cart} />
+          <Location path="/item/:item" handler={CatalogDetail} />
+        </Locations>
+      </Template>
+    )
+  }
 
 }
 

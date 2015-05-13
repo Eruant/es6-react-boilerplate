@@ -20,6 +20,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _appCartsummary = require('./app-cartsummary');
+
+var _appCartsummary2 = _interopRequireDefault(_appCartsummary);
+
 var Header = (function (_React$Component) {
   function Header(props) {
     _classCallCheck(this, Header);
@@ -33,9 +37,22 @@ var Header = (function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'h1',
+        'section',
         null,
-        'Header'
+        _react2['default'].createElement(
+          'div',
+          null,
+          _react2['default'].createElement(
+            'h1',
+            null,
+            'Lets Shop'
+          )
+        ),
+        _react2['default'].createElement(
+          'div',
+          null,
+          _react2['default'].createElement(_appCartsummary2['default'], null)
+        )
       );
     }
   }]);

@@ -20,38 +20,24 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterComponent = require('react-router-component');
+var CatalogDetail = (function (_React$Component) {
+  function CatalogDetail(props) {
+    _classCallCheck(this, CatalogDetail);
 
-var _reactRouterComponent2 = _interopRequireDefault(_reactRouterComponent);
-
-var Link = _reactRouterComponent2['default'].Link;
-
-var CartSummary = (function (_React$Component) {
-  function CartSummary(props) {
-    _classCallCheck(this, CartSummary);
-
-    _get(Object.getPrototypeOf(CartSummary.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(CatalogDetail.prototype), 'constructor', this).call(this, props);
   }
 
-  _inherits(CartSummary, _React$Component);
+  _inherits(CatalogDetail, _React$Component);
 
-  _createClass(CartSummary, [{
+  _createClass(CatalogDetail, [{
     key: 'render',
     value: function render() {
-      return _react2['default'].createElement(
-        'section',
-        null,
-        _react2['default'].createElement(
-          Link,
-          { href: '/cart' },
-          'Cart Items: QTY / £COST'
-        )
-      );
+      return _react2['default'].createElement('section', null);
     }
   }]);
 
-  return CartSummary;
+  return CatalogDetail;
 })(_react2['default'].Component);
 
-exports['default'] = CartSummary;
+exports['default'] = CatalogDetail;
 module.exports = exports['default'];

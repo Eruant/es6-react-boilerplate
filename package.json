@@ -29,6 +29,8 @@
     "object-assign": "^2.0.0",
     "onchange": "^1.1.0",
     "react": "^0.13.3",
+    "react-async": "^2.1.0",
+    "react-router-component": "^0.24.4",
     "react-tools": "^0.13.3"
   }
 }
