@@ -20,37 +20,37 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsAppCatalog = require('../components/app-catalog');
+var _actionsAppActions = require('../actions/app-actions');
 
-var _componentsAppCatalog2 = _interopRequireDefault(_componentsAppCatalog);
+var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
 
-var App = (function (_React$Component) {
-  function App(props) {
-    _classCallCheck(this, App);
+var Decrease = (function (_React$Component) {
+  function Decrease(props) {
+    _classCallCheck(this, Decrease);
 
-    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(Decrease.prototype), 'constructor', this).call(this, props);
   }
 
-  _inherits(App, _React$Component);
+  _inherits(Decrease, _React$Component);
 
-  _createClass(App, [{
+  _createClass(Decrease, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      _actionsAppActions2['default'].decreaseItem(this.props.index);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'section',
-        null,
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Lets shop'
-        ),
-        _react2['default'].createElement(_componentsAppCatalog2['default'], null)
+        'button',
+        { onClick: this.handleClick },
+        '-'
       );
     }
   }]);
 
-  return App;
+  return Decrease;
 })(_react2['default'].Component);
 
-exports['default'] = App;
+exports['default'] = Decrease;
 module.exports = exports['default'];

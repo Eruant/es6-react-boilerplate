@@ -1,10 +1,18 @@
 import React from 'react';
+import Catalog from '../components/app-catalog';
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props);
+  }
+
     render() {
         return (
-            <h1>Hello ES6 React</h1>
+          <section>
+            <h1>Lets shop</h1>
+            <Catalog />
+          </section>
         )
     }
 

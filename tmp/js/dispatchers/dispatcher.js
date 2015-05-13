@@ -45,7 +45,7 @@ var Dispatcher = (function () {
         _addPromise(callback, payload);
       });
 
-      Promise.add(_promises).then(_clearPromises);
+      Promise.all(_promises).then(_clearPromises);
     }
   }]);
 

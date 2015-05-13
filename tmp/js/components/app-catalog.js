@@ -20,37 +20,61 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsAppCatalog = require('../components/app-catalog');
+var _storesAppStore = require('../stores/app-store');
 
-var _componentsAppCatalog2 = _interopRequireDefault(_componentsAppCatalog);
+var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
 
-var App = (function (_React$Component) {
-  function App(props) {
-    _classCallCheck(this, App);
+var _componentsAppAddtocart = require('../components/app-addtocart');
 
-    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+var _componentsAppAddtocart2 = _interopRequireDefault(_componentsAppAddtocart);
+
+var Catalog = (function (_React$Component) {
+  function Catalog(props) {
+    _classCallCheck(this, Catalog);
+
+    _get(Object.getPrototypeOf(Catalog.prototype), 'constructor', this).call(this, props);
+
+    this.state = {
+      items: _storesAppStore2['default'].getCatalog()
+    };
   }
 
-  _inherits(App, _React$Component);
+  _inherits(Catalog, _React$Component);
 
-  _createClass(App, [{
+  _createClass(Catalog, [{
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'section',
+        'table',
         null,
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Lets shop'
-        ),
-        _react2['default'].createElement(_componentsAppCatalog2['default'], null)
+        this.state.items.map(function (item) {
+          return _react2['default'].createElement(
+            'tr',
+            { key: item.id },
+            _react2['default'].createElement(
+              'td',
+              null,
+              item.title
+            ),
+            _react2['default'].createElement(
+              'td',
+              null,
+              '£',
+              item.cost
+            ),
+            _react2['default'].createElement(
+              'td',
+              null,
+              _react2['default'].createElement(_componentsAppAddtocart2['default'], { item: item })
+            )
+          );
+        })
       );
     }
   }]);
 
-  return App;
+  return Catalog;
 })(_react2['default'].Component);
 
-exports['default'] = App;
+exports['default'] = Catalog;
 module.exports = exports['default'];

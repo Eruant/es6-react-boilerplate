@@ -30,7 +30,8 @@ class Dispatcher {
       _addPromise(callback, payload);
     });
 
-    Promise.add(_promises)
+    Promise
+      .all(_promises)
       .then(_clearPromises);
   }
 
