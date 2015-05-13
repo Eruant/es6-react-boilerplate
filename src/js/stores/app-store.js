@@ -7,11 +7,18 @@ var EventEmitter = events.EventEmitter;
 
 const CHANGE_EVENT = 'change';
 
-var _catalog = [
-  { id: 1, title: 'widget #1', cost: 1 },
-  { id: 2, title: 'widget #2', cost: 2 },
-  { id: 3, title: 'widget #3', cost: 3 }
-];
+var _catalog = [];
+
+for (let i = 1; i < 9; i++) {
+  _catalog.push({
+    id: 'Widget' + i,
+    title: 'Widget #' + i,
+    summary: 'This is great!',
+    description: 'Lorem ipsum dolor sit amet consectetur...',
+    img: 'http://placehold.it/195x195',
+    cost: i
+  });
+}
 
 var _cartItems = [];
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import AppStore from '../stores/app-store';
-import RemoveFromCart from '../components/app-removefromcart';
-import Increase from '../components/app-increase';
-import Decrease from '../components/app-decrease';
+import AppStore from '../../stores/app-store';
+import RemoveFromCart from './app-removefromcart';
+import Increase from './app-increase';
+import Decrease from './app-decrease';
 
 var cartItems = function () {
   return {

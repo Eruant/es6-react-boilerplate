@@ -20,47 +20,28 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsCatalogAppCatalog = require('../components/catalog/app-catalog');
+var Template = (function (_React$Component) {
+  function Template(props) {
+    _classCallCheck(this, Template);
 
-var _componentsCatalogAppCatalog2 = _interopRequireDefault(_componentsCatalogAppCatalog);
-
-var _componentsCartAppCart = require('../components/cart/app-cart');
-
-var _componentsCartAppCart2 = _interopRequireDefault(_componentsCartAppCart);
-
-var App = (function (_React$Component) {
-  function App(props) {
-    _classCallCheck(this, App);
-
-    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(Template.prototype), 'constructor', this).call(this, props);
   }
 
-  _inherits(App, _React$Component);
+  _inherits(Template, _React$Component);
 
-  _createClass(App, [{
+  _createClass(Template, [{
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'section',
+        'h1',
         null,
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Lets shop'
-        ),
-        _react2['default'].createElement(_componentsCatalogAppCatalog2['default'], null),
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Cart'
-        ),
-        _react2['default'].createElement(_componentsCartAppCart2['default'], null)
+        'Template'
       );
     }
   }]);
 
-  return App;
+  return Template;
 })(_react2['default'].Component);
 
-exports['default'] = App;
+exports['default'] = Template;
 module.exports = exports['default'];

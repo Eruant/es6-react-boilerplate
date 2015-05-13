@@ -20,21 +20,21 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _storesAppStore = require('../stores/app-store');
+var _storesAppStore = require('../../stores/app-store');
 
 var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
 
-var _componentsAppRemovefromcart = require('../components/app-removefromcart');
+var _appRemovefromcart = require('./app-removefromcart');
 
-var _componentsAppRemovefromcart2 = _interopRequireDefault(_componentsAppRemovefromcart);
+var _appRemovefromcart2 = _interopRequireDefault(_appRemovefromcart);
 
-var _componentsAppIncrease = require('../components/app-increase');
+var _appIncrease = require('./app-increase');
 
-var _componentsAppIncrease2 = _interopRequireDefault(_componentsAppIncrease);
+var _appIncrease2 = _interopRequireDefault(_appIncrease);
 
-var _componentsAppDecrease = require('../components/app-decrease');
+var _appDecrease = require('./app-decrease');
 
-var _componentsAppDecrease2 = _interopRequireDefault(_componentsAppDecrease);
+var _appDecrease2 = _interopRequireDefault(_appDecrease);
 
 var cartItems = function cartItems() {
   return {
@@ -113,7 +113,7 @@ var Cart = (function (_React$Component) {
               _react2['default'].createElement(
                 'td',
                 null,
-                _react2['default'].createElement(_componentsAppRemovefromcart2['default'], { index: i })
+                _react2['default'].createElement(_appRemovefromcart2['default'], { index: i })
               ),
               _react2['default'].createElement(
                 'td',
@@ -128,8 +128,8 @@ var Cart = (function (_React$Component) {
               _react2['default'].createElement(
                 'td',
                 null,
-                _react2['default'].createElement(_componentsAppIncrease2['default'], { index: i }),
-                _react2['default'].createElement(_componentsAppDecrease2['default'], { index: i })
+                _react2['default'].createElement(_appIncrease2['default'], { index: i }),
+                _react2['default'].createElement(_appDecrease2['default'], { index: i })
               ),
               _react2['default'].createElement(
                 'td',

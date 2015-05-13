@@ -20,38 +20,28 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _actionsAppActions = require('../actions/app-actions');
+var CartSummary = (function (_React$Component) {
+  function CartSummary(props) {
+    _classCallCheck(this, CartSummary);
 
-var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
-
-var RemoveFromCart = (function (_React$Component) {
-  function RemoveFromCart(props) {
-    _classCallCheck(this, RemoveFromCart);
-
-    _get(Object.getPrototypeOf(RemoveFromCart.prototype), 'constructor', this).call(this, props);
-    this.handleClick = this.handleClick.bind(this);
+    _get(Object.getPrototypeOf(CartSummary.prototype), 'constructor', this).call(this, props);
   }
 
-  _inherits(RemoveFromCart, _React$Component);
+  _inherits(CartSummary, _React$Component);
 
-  _createClass(RemoveFromCart, [{
-    key: 'handleClick',
-    value: function handleClick() {
-      _actionsAppActions2['default'].removeItem(this.props.index);
-    }
-  }, {
+  _createClass(CartSummary, [{
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'button',
-        { onClick: this.handleClick },
-        'X'
+        'h1',
+        null,
+        'Cart Summary'
       );
     }
   }]);
 
-  return RemoveFromCart;
+  return CartSummary;
 })(_react2['default'].Component);
 
-exports['default'] = RemoveFromCart;
+exports['default'] = CartSummary;
 module.exports = exports['default'];

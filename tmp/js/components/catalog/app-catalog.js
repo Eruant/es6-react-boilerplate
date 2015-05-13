@@ -20,47 +20,61 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsCatalogAppCatalog = require('../components/catalog/app-catalog');
+var _storesAppStore = require('../../stores/app-store');
 
-var _componentsCatalogAppCatalog2 = _interopRequireDefault(_componentsCatalogAppCatalog);
+var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
 
-var _componentsCartAppCart = require('../components/cart/app-cart');
+var _appAddtocart = require('./app-addtocart');
 
-var _componentsCartAppCart2 = _interopRequireDefault(_componentsCartAppCart);
+var _appAddtocart2 = _interopRequireDefault(_appAddtocart);
 
-var App = (function (_React$Component) {
-  function App(props) {
-    _classCallCheck(this, App);
+var Catalog = (function (_React$Component) {
+  function Catalog(props) {
+    _classCallCheck(this, Catalog);
 
-    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(Catalog.prototype), 'constructor', this).call(this, props);
+
+    this.state = {
+      items: _storesAppStore2['default'].getCatalog()
+    };
   }
 
-  _inherits(App, _React$Component);
+  _inherits(Catalog, _React$Component);
 
-  _createClass(App, [{
+  _createClass(Catalog, [{
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'section',
+        'table',
         null,
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Lets shop'
-        ),
-        _react2['default'].createElement(_componentsCatalogAppCatalog2['default'], null),
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Cart'
-        ),
-        _react2['default'].createElement(_componentsCartAppCart2['default'], null)
+        this.state.items.map(function (item) {
+          return _react2['default'].createElement(
+            'tr',
+            { key: item.id },
+            _react2['default'].createElement(
+              'td',
+              null,
+              item.title
+            ),
+            _react2['default'].createElement(
+              'td',
+              null,
+              '£',
+              item.cost
+            ),
+            _react2['default'].createElement(
+              'td',
+              null,
+              _react2['default'].createElement(_appAddtocart2['default'], { item: item })
+            )
+          );
+        })
       );
     }
   }]);
 
-  return App;
+  return Catalog;
 })(_react2['default'].Component);
 
-exports['default'] = App;
+exports['default'] = Catalog;
 module.exports = exports['default'];

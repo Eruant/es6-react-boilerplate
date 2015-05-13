@@ -1,6 +1,6 @@
 import React from 'react';
-import Catalog from '../components/app-catalog';
-import Cart from '../components/app-cart';
+import Catalog from '../components/catalog/app-catalog';
+import Cart from '../components/cart/app-cart';
 
 class App extends React.Component {
 

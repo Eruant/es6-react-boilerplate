@@ -20259,42 +20259,51 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _actionsAppActions = require('../actions/app-actions');
+var _componentsCatalogAppCatalog = require('../components/catalog/app-catalog');
 
-var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
+var _componentsCatalogAppCatalog2 = _interopRequireDefault(_componentsCatalogAppCatalog);
 
-var AddToCart = (function (_React$Component) {
-  function AddToCart(props) {
-    _classCallCheck(this, AddToCart);
+var _componentsCartAppCart = require('../components/cart/app-cart');
 
-    _get(Object.getPrototypeOf(AddToCart.prototype), 'constructor', this).call(this, props);
-    this.handleClick = this.handleClick.bind(this);
+var _componentsCartAppCart2 = _interopRequireDefault(_componentsCartAppCart);
+
+var App = (function (_React$Component) {
+  function App(props) {
+    _classCallCheck(this, App);
+
+    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
   }
 
-  _inherits(AddToCart, _React$Component);
+  _inherits(App, _React$Component);
 
-  _createClass(AddToCart, [{
-    key: 'handleClick',
-    value: function handleClick() {
-      _actionsAppActions2['default'].addItem(this.props.item);
-    }
-  }, {
+  _createClass(App, [{
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'button',
-        { onClick: this.handleClick },
-        'Add to cart'
+        'section',
+        null,
+        _react2['default'].createElement(
+          'h1',
+          null,
+          'Lets shop'
+        ),
+        _react2['default'].createElement(_componentsCatalogAppCatalog2['default'], null),
+        _react2['default'].createElement(
+          'h1',
+          null,
+          'Cart'
+        ),
+        _react2['default'].createElement(_componentsCartAppCart2['default'], null)
       );
     }
   }]);
 
-  return AddToCart;
+  return App;
 })(_react2['default'].Component);
 
-exports['default'] = AddToCart;
+exports['default'] = App;
 module.exports = exports['default'];
-},{"../actions/app-actions":160,"react":159}],162:[function(require,module,exports){
+},{"../components/cart/app-cart":162,"../components/catalog/app-catalog":167,"react":159}],162:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -20317,21 +20326,21 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _storesAppStore = require('../stores/app-store');
+var _storesAppStore = require('../../stores/app-store');
 
 var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
 
-var _componentsAppRemovefromcart = require('../components/app-removefromcart');
+var _appRemovefromcart = require('./app-removefromcart');
 
-var _componentsAppRemovefromcart2 = _interopRequireDefault(_componentsAppRemovefromcart);
+var _appRemovefromcart2 = _interopRequireDefault(_appRemovefromcart);
 
-var _componentsAppIncrease = require('../components/app-increase');
+var _appIncrease = require('./app-increase');
 
-var _componentsAppIncrease2 = _interopRequireDefault(_componentsAppIncrease);
+var _appIncrease2 = _interopRequireDefault(_appIncrease);
 
-var _componentsAppDecrease = require('../components/app-decrease');
+var _appDecrease = require('./app-decrease');
 
-var _componentsAppDecrease2 = _interopRequireDefault(_componentsAppDecrease);
+var _appDecrease2 = _interopRequireDefault(_appDecrease);
 
 var cartItems = function cartItems() {
   return {
@@ -20410,7 +20419,7 @@ var Cart = (function (_React$Component) {
               _react2['default'].createElement(
                 'td',
                 null,
-                _react2['default'].createElement(_componentsAppRemovefromcart2['default'], { index: i })
+                _react2['default'].createElement(_appRemovefromcart2['default'], { index: i })
               ),
               _react2['default'].createElement(
                 'td',
@@ -20425,8 +20434,8 @@ var Cart = (function (_React$Component) {
               _react2['default'].createElement(
                 'td',
                 null,
-                _react2['default'].createElement(_componentsAppIncrease2['default'], { index: i }),
-                _react2['default'].createElement(_componentsAppDecrease2['default'], { index: i })
+                _react2['default'].createElement(_appIncrease2['default'], { index: i }),
+                _react2['default'].createElement(_appDecrease2['default'], { index: i })
               ),
               _react2['default'].createElement(
                 'td',
@@ -20465,7 +20474,7 @@ var Cart = (function (_React$Component) {
 
 exports['default'] = Cart;
 module.exports = exports['default'];
-},{"../components/app-decrease":164,"../components/app-increase":165,"../components/app-removefromcart":166,"../stores/app-store":171,"react":159}],163:[function(require,module,exports){
+},{"../../stores/app-store":171,"./app-decrease":163,"./app-increase":164,"./app-removefromcart":165,"react":159}],163:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -20488,13 +20497,245 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _storesAppStore = require('../stores/app-store');
+var _actionsAppActions = require('../../actions/app-actions');
+
+var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
+
+var Decrease = (function (_React$Component) {
+  function Decrease(props) {
+    _classCallCheck(this, Decrease);
+
+    _get(Object.getPrototypeOf(Decrease.prototype), 'constructor', this).call(this, props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  _inherits(Decrease, _React$Component);
+
+  _createClass(Decrease, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      _actionsAppActions2['default'].decreaseItem(this.props.index);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'button',
+        { onClick: this.handleClick },
+        '-'
+      );
+    }
+  }]);
+
+  return Decrease;
+})(_react2['default'].Component);
+
+exports['default'] = Decrease;
+module.exports = exports['default'];
+},{"../../actions/app-actions":160,"react":159}],164:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
+    property = _x2,
+    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _actionsAppActions = require('../../actions/app-actions');
+
+var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
+
+var Increase = (function (_React$Component) {
+  function Increase(props) {
+    _classCallCheck(this, Increase);
+
+    _get(Object.getPrototypeOf(Increase.prototype), 'constructor', this).call(this, props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  _inherits(Increase, _React$Component);
+
+  _createClass(Increase, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      _actionsAppActions2['default'].increaseItem(this.props.index);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'button',
+        { onClick: this.handleClick },
+        '+'
+      );
+    }
+  }]);
+
+  return Increase;
+})(_react2['default'].Component);
+
+exports['default'] = Increase;
+module.exports = exports['default'];
+},{"../../actions/app-actions":160,"react":159}],165:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
+    property = _x2,
+    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _actionsAppActions = require('../../actions/app-actions');
+
+var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
+
+var RemoveFromCart = (function (_React$Component) {
+  function RemoveFromCart(props) {
+    _classCallCheck(this, RemoveFromCart);
+
+    _get(Object.getPrototypeOf(RemoveFromCart.prototype), 'constructor', this).call(this, props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  _inherits(RemoveFromCart, _React$Component);
+
+  _createClass(RemoveFromCart, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      _actionsAppActions2['default'].removeItem(this.props.index);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'button',
+        { onClick: this.handleClick },
+        'X'
+      );
+    }
+  }]);
+
+  return RemoveFromCart;
+})(_react2['default'].Component);
+
+exports['default'] = RemoveFromCart;
+module.exports = exports['default'];
+},{"../../actions/app-actions":160,"react":159}],166:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
+    property = _x2,
+    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _actionsAppActions = require('../../actions/app-actions');
+
+var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
+
+var AddToCart = (function (_React$Component) {
+  function AddToCart(props) {
+    _classCallCheck(this, AddToCart);
+
+    _get(Object.getPrototypeOf(AddToCart.prototype), 'constructor', this).call(this, props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  _inherits(AddToCart, _React$Component);
+
+  _createClass(AddToCart, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      _actionsAppActions2['default'].addItem(this.props.item);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2['default'].createElement(
+        'button',
+        { onClick: this.handleClick },
+        'Add to cart'
+      );
+    }
+  }]);
+
+  return AddToCart;
+})(_react2['default'].Component);
+
+exports['default'] = AddToCart;
+module.exports = exports['default'];
+},{"../../actions/app-actions":160,"react":159}],167:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
+    property = _x2,
+    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _storesAppStore = require('../../stores/app-store');
 
 var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
 
-var _componentsAppAddtocart = require('../components/app-addtocart');
+var _appAddtocart = require('./app-addtocart');
 
-var _componentsAppAddtocart2 = _interopRequireDefault(_componentsAppAddtocart);
+var _appAddtocart2 = _interopRequireDefault(_appAddtocart);
 
 var Catalog = (function (_React$Component) {
   function Catalog(props) {
@@ -20533,7 +20774,7 @@ var Catalog = (function (_React$Component) {
             _react2['default'].createElement(
               'td',
               null,
-              _react2['default'].createElement(_componentsAppAddtocart2['default'], { item: item })
+              _react2['default'].createElement(_appAddtocart2['default'], { item: item })
             )
           );
         })
@@ -20546,248 +20787,7 @@ var Catalog = (function (_React$Component) {
 
 exports['default'] = Catalog;
 module.exports = exports['default'];
-},{"../components/app-addtocart":161,"../stores/app-store":171,"react":159}],164:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
-    property = _x2,
-    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _actionsAppActions = require('../actions/app-actions');
-
-var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
-
-var Decrease = (function (_React$Component) {
-  function Decrease(props) {
-    _classCallCheck(this, Decrease);
-
-    _get(Object.getPrototypeOf(Decrease.prototype), 'constructor', this).call(this, props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  _inherits(Decrease, _React$Component);
-
-  _createClass(Decrease, [{
-    key: 'handleClick',
-    value: function handleClick() {
-      _actionsAppActions2['default'].decreaseItem(this.props.index);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2['default'].createElement(
-        'button',
-        { onClick: this.handleClick },
-        '-'
-      );
-    }
-  }]);
-
-  return Decrease;
-})(_react2['default'].Component);
-
-exports['default'] = Decrease;
-module.exports = exports['default'];
-},{"../actions/app-actions":160,"react":159}],165:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
-    property = _x2,
-    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _actionsAppActions = require('../actions/app-actions');
-
-var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
-
-var Increase = (function (_React$Component) {
-  function Increase(props) {
-    _classCallCheck(this, Increase);
-
-    _get(Object.getPrototypeOf(Increase.prototype), 'constructor', this).call(this, props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  _inherits(Increase, _React$Component);
-
-  _createClass(Increase, [{
-    key: 'handleClick',
-    value: function handleClick() {
-      _actionsAppActions2['default'].increaseItem(this.props.index);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2['default'].createElement(
-        'button',
-        { onClick: this.handleClick },
-        '+'
-      );
-    }
-  }]);
-
-  return Increase;
-})(_react2['default'].Component);
-
-exports['default'] = Increase;
-module.exports = exports['default'];
-},{"../actions/app-actions":160,"react":159}],166:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
-    property = _x2,
-    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _actionsAppActions = require('../actions/app-actions');
-
-var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
-
-var RemoveFromCart = (function (_React$Component) {
-  function RemoveFromCart(props) {
-    _classCallCheck(this, RemoveFromCart);
-
-    _get(Object.getPrototypeOf(RemoveFromCart.prototype), 'constructor', this).call(this, props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  _inherits(RemoveFromCart, _React$Component);
-
-  _createClass(RemoveFromCart, [{
-    key: 'handleClick',
-    value: function handleClick() {
-      _actionsAppActions2['default'].removeItem(this.props.index);
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2['default'].createElement(
-        'button',
-        { onClick: this.handleClick },
-        'X'
-      );
-    }
-  }]);
-
-  return RemoveFromCart;
-})(_react2['default'].Component);
-
-exports['default'] = RemoveFromCart;
-module.exports = exports['default'];
-},{"../actions/app-actions":160,"react":159}],167:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
-    property = _x2,
-    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _componentsAppCatalog = require('../components/app-catalog');
-
-var _componentsAppCatalog2 = _interopRequireDefault(_componentsAppCatalog);
-
-var _componentsAppCart = require('../components/app-cart');
-
-var _componentsAppCart2 = _interopRequireDefault(_componentsAppCart);
-
-var App = (function (_React$Component) {
-  function App(props) {
-    _classCallCheck(this, App);
-
-    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
-  }
-
-  _inherits(App, _React$Component);
-
-  _createClass(App, [{
-    key: 'render',
-    value: function render() {
-      return _react2['default'].createElement(
-        'section',
-        null,
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Lets shop'
-        ),
-        _react2['default'].createElement(_componentsAppCatalog2['default'], null),
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Cart'
-        ),
-        _react2['default'].createElement(_componentsAppCart2['default'], null)
-      );
-    }
-  }]);
-
-  return App;
-})(_react2['default'].Component);
-
-exports['default'] = App;
-module.exports = exports['default'];
-},{"../components/app-cart":162,"../components/app-catalog":163,"react":159}],168:[function(require,module,exports){
+},{"../../stores/app-store":171,"./app-addtocart":166,"react":159}],168:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -20937,7 +20937,18 @@ var EventEmitter = _events2['default'].EventEmitter;
 
 var CHANGE_EVENT = 'change';
 
-var _catalog = [{ id: 1, title: 'widget #1', cost: 1 }, { id: 2, title: 'widget #2', cost: 2 }, { id: 3, title: 'widget #3', cost: 3 }];
+var _catalog = [];
+
+for (var i = 1; i < 9; i++) {
+  _catalog.push({
+    id: 'Widget' + i,
+    title: 'Widget #' + i,
+    summary: 'This is great!',
+    description: 'Lorem ipsum dolor sit amet consectetur...',
+    img: 'http://placehold.it/195x195',
+    cost: i
+  });
+}
 
 var _cartItems = [];
 
@@ -21048,4 +21059,4 @@ var _componentsApp2 = _interopRequireDefault(_componentsApp);
 _domready2['default'](function () {
   return _react2['default'].render(_react2['default'].createElement(_componentsApp2['default'], null), document.querySelector('body'));
 });
-},{"./components/app":167,"domready":3,"react":159}]},{},[172]);
+},{"./components/app":161,"domready":3,"react":159}]},{},[172]);

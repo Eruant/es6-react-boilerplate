@@ -20,7 +20,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _actionsAppActions = require('../actions/app-actions');
+var _actionsAppActions = require('../../actions/app-actions');
 
 var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import AppActions from '../actions/app-actions';
+import AppActions from '../../actions/app-actions';
 
 class Increase extends React.Component {
 

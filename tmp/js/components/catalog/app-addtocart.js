@@ -20,47 +20,38 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsCatalogAppCatalog = require('../components/catalog/app-catalog');
+var _actionsAppActions = require('../../actions/app-actions');
 
-var _componentsCatalogAppCatalog2 = _interopRequireDefault(_componentsCatalogAppCatalog);
+var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
 
-var _componentsCartAppCart = require('../components/cart/app-cart');
+var AddToCart = (function (_React$Component) {
+  function AddToCart(props) {
+    _classCallCheck(this, AddToCart);
 
-var _componentsCartAppCart2 = _interopRequireDefault(_componentsCartAppCart);
-
-var App = (function (_React$Component) {
-  function App(props) {
-    _classCallCheck(this, App);
-
-    _get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(AddToCart.prototype), 'constructor', this).call(this, props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  _inherits(App, _React$Component);
+  _inherits(AddToCart, _React$Component);
 
-  _createClass(App, [{
+  _createClass(AddToCart, [{
+    key: 'handleClick',
+    value: function handleClick() {
+      _actionsAppActions2['default'].addItem(this.props.item);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2['default'].createElement(
-        'section',
-        null,
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Lets shop'
-        ),
-        _react2['default'].createElement(_componentsCatalogAppCatalog2['default'], null),
-        _react2['default'].createElement(
-          'h1',
-          null,
-          'Cart'
-        ),
-        _react2['default'].createElement(_componentsCartAppCart2['default'], null)
+        'button',
+        { onClick: this.handleClick },
+        'Add to cart'
       );
     }
   }]);
 
-  return App;
+  return AddToCart;
 })(_react2['default'].Component);
 
-exports['default'] = App;
+exports['default'] = AddToCart;
 module.exports = exports['default'];

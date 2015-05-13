@@ -20,24 +20,24 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _actionsAppActions = require('../actions/app-actions');
+var _actionsAppActions = require('../../actions/app-actions');
 
 var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
 
-var AddToCart = (function (_React$Component) {
-  function AddToCart(props) {
-    _classCallCheck(this, AddToCart);
+var Decrease = (function (_React$Component) {
+  function Decrease(props) {
+    _classCallCheck(this, Decrease);
 
-    _get(Object.getPrototypeOf(AddToCart.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(Decrease.prototype), 'constructor', this).call(this, props);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  _inherits(AddToCart, _React$Component);
+  _inherits(Decrease, _React$Component);
 
-  _createClass(AddToCart, [{
+  _createClass(Decrease, [{
     key: 'handleClick',
     value: function handleClick() {
-      _actionsAppActions2['default'].addItem(this.props.item);
+      _actionsAppActions2['default'].decreaseItem(this.props.index);
     }
   }, {
     key: 'render',
@@ -45,13 +45,13 @@ var AddToCart = (function (_React$Component) {
       return _react2['default'].createElement(
         'button',
         { onClick: this.handleClick },
-        'Add to cart'
+        '-'
       );
     }
   }]);
 
-  return AddToCart;
+  return Decrease;
 })(_react2['default'].Component);
 
-exports['default'] = AddToCart;
+exports['default'] = Decrease;
 module.exports = exports['default'];
