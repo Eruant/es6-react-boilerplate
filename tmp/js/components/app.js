@@ -20,13 +20,13 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsCatalogAppCatalog = require('../components/catalog/app-catalog');
+var _catalogAppCatalog = require('./catalog/app-catalog');
 
-var _componentsCatalogAppCatalog2 = _interopRequireDefault(_componentsCatalogAppCatalog);
+var _catalogAppCatalog2 = _interopRequireDefault(_catalogAppCatalog);
 
-var _componentsCartAppCart = require('../components/cart/app-cart');
+var _cartAppCart = require('./cart/app-cart');
 
-var _componentsCartAppCart2 = _interopRequireDefault(_componentsCartAppCart);
+var _cartAppCart2 = _interopRequireDefault(_cartAppCart);
 
 var App = (function (_React$Component) {
   function App(props) {
@@ -48,13 +48,13 @@ var App = (function (_React$Component) {
           null,
           'Lets shop'
         ),
-        _react2['default'].createElement(_componentsCatalogAppCatalog2['default'], null),
+        _react2['default'].createElement(_catalogAppCatalog2['default'], null),
         _react2['default'].createElement(
           'h1',
           null,
           'Cart'
         ),
-        _react2['default'].createElement(_componentsCartAppCart2['default'], null)
+        _react2['default'].createElement(_cartAppCart2['default'], null)
       );
     }
   }]);
