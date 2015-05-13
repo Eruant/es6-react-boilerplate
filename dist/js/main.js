@@ -22120,6 +22120,11 @@ var Cart = (function (_React$Component) {
       _storesAppStore2['default'].addChangeListener(this._onChange);
     }
   }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _storesAppStore2['default'].removeChangeListener(this._onChange);
+    }
+  }, {
     key: '_onChange',
     value: function _onChange() {
       this.setState(cartItems());

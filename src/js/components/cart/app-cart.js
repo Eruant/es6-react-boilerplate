@@ -24,6 +24,10 @@ class Cart extends React.Component {
       AppStore.addChangeListener(this._onChange);
     }
 
+    componentWillUnmount() {
+      AppStore.removeChangeListener(this._onChange);
+    }
+
     _onChange() {
       this.setState(cartItems());
     }
