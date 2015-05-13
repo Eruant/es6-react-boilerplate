@@ -15,7 +15,9 @@
     "watch:scripts": "onchange 'src/js/**/*' -- npm run build:dev:scripts",
     "watch:markup": "onchange 'src/index.html' -- npm run build:dev:markup",
     "watch": "npm run watch:scripts & npm run watch:markup",
-    "start": "browser-sync start --files 'dist/*, dist/**/*' --server dist"
+    "start:dev": "browser-sync start --files 'dist/*, dist/**/*' --server dist & npm run watch",
+    "start": "echo \"Error: no start task specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Gale",
   "license": "MIT",
