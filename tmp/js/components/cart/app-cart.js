@@ -20,10 +20,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _storesAppStore = require('../../stores/app-store');
-
-var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
-
 var _appRemovefromcart = require('./app-removefromcart');
 
 var _appRemovefromcart2 = _interopRequireDefault(_appRemovefromcart);
@@ -36,41 +32,20 @@ var _appDecrease = require('./app-decrease');
 
 var _appDecrease2 = _interopRequireDefault(_appDecrease);
 
-var cartItems = function cartItems() {
-  return {
-    items: _storesAppStore2['default'].getCart()
-  };
-};
+var _mixinsStoreWatchMixin = require('../../mixins/store-watch-mixin');
 
-var Cart = (function (_React$Component) {
+var _mixinsStoreWatchMixin2 = _interopRequireDefault(_mixinsStoreWatchMixin);
+
+var Cart = (function (_StoreWatchMixin) {
   function Cart(props) {
     _classCallCheck(this, Cart);
 
     _get(Object.getPrototypeOf(Cart.prototype), 'constructor', this).call(this, props);
-
-    this.state = cartItems();
-
-    this._onChange = this._onChange.bind(this);
   }
 
-  _inherits(Cart, _React$Component);
+  _inherits(Cart, _StoreWatchMixin);
 
   _createClass(Cart, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      _storesAppStore2['default'].addChangeListener(this._onChange);
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      _storesAppStore2['default'].removeChangeListener(this._onChange);
-    }
-  }, {
-    key: '_onChange',
-    value: function _onChange() {
-      this.setState(cartItems());
-    }
-  }, {
     key: 'render',
     value: function render() {
 
@@ -169,7 +144,7 @@ var Cart = (function (_React$Component) {
   }]);
 
   return Cart;
-})(_react2['default'].Component);
+})(_mixinsStoreWatchMixin2['default']);
 
 exports['default'] = Cart;
 module.exports = exports['default'];

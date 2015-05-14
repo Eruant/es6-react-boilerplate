@@ -1,35 +1,13 @@
 import React from 'react';
-import AppStore from '../../stores/app-store';
 import RemoveFromCart from './app-removefromcart';
 import Increase from './app-increase';
 import Decrease from './app-decrease';
+import StoreWatchMixin from '../../mixins/store-watch-mixin';
 
-var cartItems = function () {
-  return {
-    items: AppStore.getCart()
-  };
-};
-
-class Cart extends React.Component {
+class Cart extends StoreWatchMixin {
 
     constructor(props) {
       super(props);
-
-      this.state = cartItems();
-
-      this._onChange = this._onChange.bind(this);
-    }
-
-    componentWillMount() {
-      AppStore.addChangeListener(this._onChange);
-    }
-
-    componentWillUnmount() {
-      AppStore.removeChangeListener(this._onChange);
-    }
-
-    _onChange() {
-      this.setState(cartItems());
     }
 
     render() {

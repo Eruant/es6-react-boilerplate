@@ -22079,10 +22079,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _storesAppStore = require('../../stores/app-store');
-
-var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
-
 var _appRemovefromcart = require('./app-removefromcart');
 
 var _appRemovefromcart2 = _interopRequireDefault(_appRemovefromcart);
@@ -22095,41 +22091,20 @@ var _appDecrease = require('./app-decrease');
 
 var _appDecrease2 = _interopRequireDefault(_appDecrease);
 
-var cartItems = function cartItems() {
-  return {
-    items: _storesAppStore2['default'].getCart()
-  };
-};
+var _mixinsStoreWatchMixin = require('../../mixins/store-watch-mixin');
 
-var Cart = (function (_React$Component) {
+var _mixinsStoreWatchMixin2 = _interopRequireDefault(_mixinsStoreWatchMixin);
+
+var Cart = (function (_StoreWatchMixin) {
   function Cart(props) {
     _classCallCheck(this, Cart);
 
     _get(Object.getPrototypeOf(Cart.prototype), 'constructor', this).call(this, props);
-
-    this.state = cartItems();
-
-    this._onChange = this._onChange.bind(this);
   }
 
-  _inherits(Cart, _React$Component);
+  _inherits(Cart, _StoreWatchMixin);
 
   _createClass(Cart, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      _storesAppStore2['default'].addChangeListener(this._onChange);
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      _storesAppStore2['default'].removeChangeListener(this._onChange);
-    }
-  }, {
-    key: '_onChange',
-    value: function _onChange() {
-      this.setState(cartItems());
-    }
-  }, {
     key: 'render',
     value: function render() {
 
@@ -22228,11 +22203,11 @@ var Cart = (function (_React$Component) {
   }]);
 
   return Cart;
-})(_react2['default'].Component);
+})(_mixinsStoreWatchMixin2['default']);
 
 exports['default'] = Cart;
 module.exports = exports['default'];
-},{"../../stores/app-store":200,"./app-decrease":189,"./app-increase":190,"./app-removefromcart":191,"react":184}],189:[function(require,module,exports){
+},{"../../mixins/store-watch-mixin":200,"./app-decrease":189,"./app-increase":190,"./app-removefromcart":191,"react":184}],189:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -22545,7 +22520,7 @@ var Catalog = (function (_React$Component) {
 
 exports['default'] = Catalog;
 module.exports = exports['default'];
-},{"../../stores/app-store":200,"./app-addtocart":192,"react":184}],194:[function(require,module,exports){
+},{"../../stores/app-store":201,"./app-addtocart":192,"react":184}],194:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -22840,6 +22815,74 @@ Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
+    property = _x2,
+    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _storesAppStore = require('../stores/app-store');
+
+var _storesAppStore2 = _interopRequireDefault(_storesAppStore);
+
+var cartItems = function cartItems() {
+  return {
+    items: _storesAppStore2['default'].getCart()
+  };
+};
+
+var StoreWatchMixin = (function (_React$Component) {
+  function StoreWatchMixin(props) {
+    _classCallCheck(this, StoreWatchMixin);
+
+    _get(Object.getPrototypeOf(StoreWatchMixin.prototype), 'constructor', this).call(this, props);
+
+    this.state = cartItems();
+
+    this._onChange = this._onChange.bind(this);
+  }
+
+  _inherits(StoreWatchMixin, _React$Component);
+
+  _createClass(StoreWatchMixin, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      _storesAppStore2['default'].addChangeListener(this._onChange);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _storesAppStore2['default'].removeChangeListener(this._onChange);
+    }
+  }, {
+    key: '_onChange',
+    value: function _onChange() {
+      this.setState(cartItems());
+    }
+  }]);
+
+  return StoreWatchMixin;
+})(_react2['default'].Component);
+
+exports['default'] = StoreWatchMixin;
+module.exports = exports['default'];
+},{"../stores/app-store":201,"react":184}],201:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _events = require('events');
@@ -22964,7 +23007,7 @@ var AppStore = _objectAssign2['default'](EventEmitter.prototype, {
 
 exports['default'] = AppStore;
 module.exports = exports['default'];
-},{"../constants/app-constants":197,"../dispatchers/app-dispatcher":198,"events":1,"object-assign":4}],201:[function(require,module,exports){
+},{"../constants/app-constants":197,"../dispatchers/app-dispatcher":198,"events":1,"object-assign":4}],202:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -22984,4 +23027,4 @@ var _componentsApp2 = _interopRequireDefault(_componentsApp);
 _domready2['default'](function () {
   return _react2['default'].render(_react2['default'].createElement(_componentsApp2['default'], null), document.querySelector('body'));
 });
-},{"./components/app":187,"domready":3,"react":184}]},{},[201]);
+},{"./components/app":187,"domready":3,"react":184}]},{},[202]);
